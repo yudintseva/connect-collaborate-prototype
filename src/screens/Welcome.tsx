@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import PhoneShell from '../components/PhoneShell';
 import StatusBar from '../components/StatusBar';
 import ImageSlot from '../components/ImageSlot';
+import MadeByMark from '../components/MadeByMark';
 import { useApp } from '../lib/context';
 
 const ring = [
@@ -31,8 +32,8 @@ export default function Welcome() {
         <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 340, height: 340 }}>
           <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 296, height: 296, borderRadius: '50%', border: '1px solid rgba(17,17,16,.06)' }} />
           <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 206, height: 206, borderRadius: '50%', border: '1px solid rgba(17,17,16,.05)' }} />
-          <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 126, height: 126, overflow: 'hidden', borderRadius: 30 }}>
-            <ImageSlot id="cc-w-center" alt="" />
+          <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 126, height: 126, overflow: 'hidden', borderRadius: 30, boxShadow: '0 6px 20px rgba(22,51,166,.18)' }}>
+            <MadeByMark size={126} radius={30} />
           </div>
           {ring.map((r) => (
             <div key={r.id} style={{ position: 'absolute', left: r.left, top: r.top, width: 62, height: 62, overflow: 'hidden', borderRadius: 17 }}>
@@ -45,12 +46,12 @@ export default function Welcome() {
 
       <div className="flex-none" style={{ padding: '0 24px 34px', display: 'flex', flexDirection: 'column' }}>
         <h1 style={{ margin: 0, font: '800 31px/1.08 Manrope,sans-serif', letterSpacing: '-.03em', color: 'var(--ink)', textAlign: 'center' }}>
-          Connect &amp; Collaborate
+          MadeBy
         </h1>
         <p style={{ margin: '12px 0 0', font: '500 15px/1.5 Manrope,sans-serif', color: 'var(--muted)', textAlign: 'center' }}>
           Платформа для коллабораций брендов, событий и креаторов.
         </p>
-        <button className="btn btn-primary" style={{ marginTop: 28 }} onClick={() => navigate('/login?intent=join')}>
+        <button className="btn btn-primary" style={{ marginTop: 28 }} onClick={() => navigate('/onboarding')}>
           Присоединиться
         </button>
         <button className="btn btn-secondary" style={{ marginTop: 10 }} onClick={() => navigate('/login?intent=signin')}>

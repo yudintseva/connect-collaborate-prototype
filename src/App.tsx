@@ -1,6 +1,7 @@
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './lib/context';
 import Welcome from './screens/Welcome';
+import Onboarding from './screens/Onboarding';
 import TelegramLogin from './screens/TelegramLogin';
 import RoleSelect from './screens/RoleSelect';
 import CreatorSetup from './screens/CreatorSetup';
@@ -22,6 +23,7 @@ export default function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Welcome />} />
+          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/login" element={<TelegramLogin />} />
           <Route path="/role" element={<RoleSelect />} />
           <Route path="/setup" element={<CreatorSetup />} />

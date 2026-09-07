@@ -1,8 +1,9 @@
-# Connect & Collaborate — clickable prototype
+# MadeBy — clickable prototype
 
 A fully clickable frontend prototype implementing the "Connect & Collaborate"
 design (see `../Connect & Collaborate.dc.html` and `../chats/chat1.md` for the
-original design source and brief). Built with React, TypeScript and Vite.
+original design source and brief), rebranded as **MadeBy**. Built with React,
+TypeScript and Vite.
 No backend — all data is mocked and persisted to `localStorage` so state
 survives a page reload.
 

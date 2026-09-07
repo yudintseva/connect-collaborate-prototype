@@ -24,7 +24,7 @@ function AccountRows({ onLogout, onDelete }: { onLogout: () => void; onDelete: (
   const share = () => {
     const url = window.location.href;
     if (navigator.share) {
-      navigator.share({ title: 'Connect & Collaborate', url }).catch(() => {});
+      navigator.share({ title: 'MadeBy', url }).catch(() => {});
     } else if (navigator.clipboard) {
       navigator.clipboard.writeText(url).then(() => toast('Ссылка скопирована'));
     } else {
