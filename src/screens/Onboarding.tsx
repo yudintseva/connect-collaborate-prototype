@@ -8,10 +8,11 @@ const slides = [
     body: 'Бренды, рестораны, салоны и события ищут креаторов рядом с вами.',
     icon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-        <circle cx="36" cy="36" r="34" stroke="rgba(255,255,255,.35)" strokeWidth="1.5" />
-        <path d="M24 40c0-9 5.4-15 12-15s12 6 12 15" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
-        <circle cx="36" cy="24" r="7" stroke="#fff" strokeWidth="2.2" />
-        <path d="M46 30l6-6M50 24l4 4" stroke="#8DB2FF" strokeWidth="2.2" strokeLinecap="round" />
+        <circle cx="36" cy="36" r="34" fill="rgba(255,255,255,.14)" />
+        <path d="M20 44c0-12.7 7.4-21 16-21s16 8.3 16 21" stroke="#fff" strokeWidth="6" strokeLinecap="round" />
+        <circle cx="36" cy="22" r="10" fill="#fff" />
+        <circle cx="49" cy="47" r="9" fill="#8DB2FF" />
+        <path d="M46 47h6M49 44v6" stroke="#1633A6" strokeWidth="2.6" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -20,9 +21,10 @@ const slides = [
     body: 'Смотрите условия, откликайтесь и получайте бартер или оплату.',
     icon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-        <circle cx="36" cy="36" r="34" stroke="rgba(255,255,255,.35)" strokeWidth="1.5" />
-        <rect x="20" y="22" width="32" height="24" rx="6" stroke="#fff" strokeWidth="2.2" />
-        <path d="M27 34l6 6 12-12" stroke="#8DB2FF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="36" cy="36" r="34" fill="rgba(255,255,255,.14)" />
+        <rect x="17" y="19" width="38" height="30" rx="10" fill="#fff" />
+        <circle cx="51" cy="47" r="12" fill="#8DB2FF" />
+        <path d="M46 47l4 4 8-8" stroke="#1633A6" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -31,11 +33,11 @@ const slides = [
     body: 'Заявки, статусы и профиль — всегда под рукой, в одном приложении.',
     icon: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-        <circle cx="36" cy="36" r="34" stroke="rgba(255,255,255,.35)" strokeWidth="1.5" />
-        <rect x="21" y="21" width="12" height="12" rx="3" stroke="#fff" strokeWidth="2.2" />
-        <rect x="39" y="21" width="12" height="12" rx="3" stroke="#8DB2FF" strokeWidth="2.2" />
-        <rect x="21" y="39" width="12" height="12" rx="3" stroke="#8DB2FF" strokeWidth="2.2" />
-        <rect x="39" y="39" width="12" height="12" rx="3" stroke="#fff" strokeWidth="2.2" />
+        <circle cx="36" cy="36" r="34" fill="rgba(255,255,255,.14)" />
+        <rect x="18" y="18" width="16" height="16" rx="7" fill="#fff" />
+        <rect x="38" y="18" width="16" height="16" rx="7" fill="#8DB2FF" />
+        <rect x="18" y="38" width="16" height="16" rx="7" fill="#8DB2FF" />
+        <rect x="38" y="38" width="16" height="16" rx="7" fill="#fff" />
       </svg>
     ),
   },
@@ -72,7 +74,7 @@ export default function Onboarding() {
         </div>
 
         <div className="grow" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 32px', textAlign: 'center' }}>
-          <div style={{ width: 104, height: 104, borderRadius: 28, background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: 112, height: 112, borderRadius: '50%', background: 'rgba(255,255,255,.16)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {slides[step].icon}
           </div>
           <h1 style={{ margin: '30px 0 0', font: '800 26px/1.2 Manrope,sans-serif', letterSpacing: '-.02em', color: '#fff' }}>
