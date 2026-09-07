@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import PhoneShell from '../components/PhoneShell';
 import StatusBar from '../components/StatusBar';
 import ImageSlot from '../components/ImageSlot';
-import MadeByMark from '../components/MadeByMark';
 import { useApp } from '../lib/context';
 
 const ring = [
@@ -33,7 +32,12 @@ export default function Welcome() {
           <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 296, height: 296, borderRadius: '50%', border: '1px solid rgba(17,17,16,.06)' }} />
           <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 206, height: 206, borderRadius: '50%', border: '1px solid rgba(17,17,16,.05)' }} />
           <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: 126, height: 126, overflow: 'hidden', borderRadius: 30, boxShadow: '0 6px 20px rgba(22,51,166,.18)' }}>
-            <MadeByMark size={126} radius={30} />
+            <img
+              src={`${import.meta.env.BASE_URL}images/madeby-logo.png`}
+              alt="MadeBy"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              draggable={false}
+            />
           </div>
           {ring.map((r) => (
             <div key={r.id} style={{ position: 'absolute', left: r.left, top: r.top, width: 62, height: 62, overflow: 'hidden', borderRadius: 17 }}>
