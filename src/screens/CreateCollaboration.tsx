@@ -4,7 +4,7 @@ import PhoneShell from '../components/PhoneShell';
 import StatusBar from '../components/StatusBar';
 import ImageSlot from '../components/ImageSlot';
 import CollabCard from '../components/CollabCard';
-import { BackIcon, CalendarIcon, CheckIcon, TicketIcon, UsersIcon } from '../components/icons';
+import { BackIcon, CalendarIcon, CameraIcon, CheckIcon, TicketIcon, UsersIcon } from '../components/icons';
 import { useApp } from '../lib/context';
 import type { Collaboration } from '../lib/data';
 
@@ -83,8 +83,8 @@ export default function CreateCollaboration() {
     audienceMin: audienceOptions[audienceIdx],
     spotsLeft: spots,
     applicants: 0,
-    hero: coverBlob ?? '',
-    thumb: coverBlob ?? '',
+    hero: coverBlob ?? `picsum:cover-${title || 'default'}`,
+    thumb: coverBlob ?? `picsum:cover-${title || 'default'}`,
     whatNeeded: whatNeeded || 'Не указано',
     whatYouGet: whatYouGet || 'Не указано',
     brandId: 'you',
@@ -194,7 +194,10 @@ export default function CreateCollaboration() {
               onClick={() => fileRef.current?.click()}
               style={{ width: '100%', aspectRatio: '16/9', position: 'relative', minWidth: 0, overflow: 'hidden', borderRadius: 14, border: 'none', padding: 0, cursor: 'pointer' }}
             >
-              {coverBlob ? <img src={coverBlob} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <ImageSlot id="" />}
+              {coverBlob ? <img src={coverBlob} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : <ImageSlot id={`picsum:cover-${title || 'default'}`} />}
+              <span style={{ position: 'absolute', right: 10, bottom: 10, width: 34, height: 34, borderRadius: '50%', background: '#fff', border: '1px solid rgba(17,17,16,.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <CameraIcon />
+              </span>
             </button>
             <input ref={fileRef} type="file" accept="image/*" hidden onChange={onPickCover} />
           </div>

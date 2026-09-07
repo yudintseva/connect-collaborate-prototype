@@ -6,14 +6,25 @@ interface ImageSlotProps {
   className?: string;
 }
 
-// Design-exported photos live in /public/images/<id>.webp. IDs with no
-// asset (synthetic mock collaborations) fall back to a soft placeholder tile.
+const PICSUM_PREFIX = 'picsum:';
+
+// Design-exported photos live in /public/images/<id>.webp. Any slot without
+// a real asset (id is empty, or explicitly "picsum:<seed>") falls back to a
+// deterministic picsum.photos placeholder so nothing ever renders blank.
 export default function ImageSlot({ id, alt = '', radius, style, className }: ImageSlotProps) {
   const s: React.CSSProperties = { borderRadius: radius, ...style };
-  if (!id) {
-    return <div className={`imgslot-empty ${className ?? ''}`} style={s} aria-hidden="true" />;
+
+  let src: string;
+  if (id.startsWith('blob:') || id.startsWith('http') || id.startsWith('data:')) {
+    src = id;
+  } else if (id.startsWith(PICSUM_PREFIX)) {
+    src = `https://picsum.photos/seed/${encodeURIComponent(id.slice(PICSUM_PREFIX.length))}/600/600`;
+  } else if (!id) {
+    src = 'https://picsum.photos/seed/cc-placeholder/600/600';
+  } else {
+    src = `${import.meta.env.BASE_URL}images/${id}.webp`;
   }
-  const src = id.startsWith('blob:') || id.startsWith('http') || id.startsWith('data:') ? id : `/images/${id}.webp`;
+
   return (
     <img
       className={`imgslot ${className ?? ''}`}

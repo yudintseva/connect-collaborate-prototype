@@ -7,7 +7,8 @@ import {
   type Notification,
   collaborations as seedCollaborations,
   initialApplications,
-  initialNotifications,
+  creatorNotifications,
+  brandNotifications,
   defaultCreatorProfile,
   defaultBrandProfile,
 } from './data';
@@ -22,7 +23,7 @@ interface PersistedState {
   brandProfile: BrandProfile;
   applications: Record<string, ApplicationStatus>;
   savedIds: string[];
-  notifications: Notification[];
+  readIds: string[];
   extraCollaborations: Collaboration[];
 }
 
@@ -37,7 +38,7 @@ function defaultState(): PersistedState {
     brandProfile: defaultBrandProfile,
     applications: initialApplications,
     savedIds: [],
-    notifications: initialNotifications,
+    readIds: [],
     extraCollaborations: [],
   };
 }
@@ -55,6 +56,7 @@ function loadState(): PersistedState {
 
 interface AppContextValue extends PersistedState {
   collaborations: Collaboration[];
+  notifications: Notification[];
   setRole: (role: Role) => void;
   login: () => void;
   logout: () => void;
@@ -118,10 +120,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
   const markRead = useCallback((id: string) => {
-    setState((s) => ({
-      ...s,
-      notifications: s.notifications.map((n) => (n.id === id ? { ...n, read: true } : n)),
-    }));
+    setState((s) => (s.readIds.includes(id) ? s : { ...s, readIds: [...s.readIds, id] }));
   }, []);
   const addCollaboration = useCallback((collab: Collaboration) => {
     setState((s) => ({ ...s, extraCollaborations: [collab, ...s.extraCollaborations] }));
@@ -132,9 +131,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
     [state.extraCollaborations],
   );
 
+  const notifications = useMemo(() => {
+    const base = state.role === 'brand' ? brandNotifications : creatorNotifications;
+    return base.map((n) => (state.readIds.includes(n.id) ? { ...n, read: true } : n));
+  }, [state.role, state.readIds]);
+
   const value: AppContextValue = {
     ...state,
     collaborations,
+    notifications,
     setRole,
     login,
     logout,

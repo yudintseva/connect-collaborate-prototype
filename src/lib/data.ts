@@ -142,8 +142,8 @@ export const collaborations: Collaboration[] = [
     audienceMin: 5000,
     spotsLeft: 4,
     applicants: 6,
-    hero: '',
-    thumb: '',
+    hero: 'picsum:terrace-launch',
+    thumb: 'picsum:terrace-launch',
     whatNeeded: '2 Reels',
     whatYouGet: 'Гонорар + ужин на двоих',
     brandId: 'nian',
@@ -163,8 +163,8 @@ export const collaborations: Collaboration[] = [
     audienceMin: 2000,
     spotsLeft: 6,
     applicants: 4,
-    hero: '',
-    thumb: '',
+    hero: 'picsum:wellness-club',
+    thumb: 'picsum:wellness-club',
     whatNeeded: '1 Reels + 4 Stories',
     whatYouGet: 'Месяц безлимитного посещения',
     brandId: 'glow-salon',
@@ -184,8 +184,8 @@ export const collaborations: Collaboration[] = [
     audienceMin: 1000,
     spotsLeft: 1,
     applicants: 15,
-    hero: '',
-    thumb: '',
+    hero: 'picsum:ugc-capsule',
+    thumb: 'picsum:ugc-capsule',
     whatNeeded: '6 UGC-видео',
     whatYouGet: 'Гонорар за видео',
     brandId: 'local-heroes',
@@ -272,9 +272,9 @@ export interface Notification {
   icon?: 'stats';
 }
 
-export const initialNotifications: Notification[] = [
+export const creatorNotifications: Notification[] = [
   {
-    id: 'n1',
+    id: 'cn1',
     text: 'Nian принял вашу заявку. Ждём вас 20 мая в 19:00.',
     time: '2 ч назад',
     status: 'accepted',
@@ -283,7 +283,7 @@ export const initialNotifications: Notification[] = [
     section: 'today',
   },
   {
-    id: 'n2',
+    id: 'cn2',
     text: 'Новая коллаборация в категории «Салоны» рядом с вами.',
     time: '5 ч назад',
     read: false,
@@ -291,7 +291,7 @@ export const initialNotifications: Notification[] = [
     section: 'today',
   },
   {
-    id: 'n3',
+    id: 'cn3',
     text: 'Fashion Pop-Up x Local Heroes: заявка на рассмотрении.',
     time: 'Вчера',
     status: 'pending',
@@ -300,8 +300,45 @@ export const initialNotifications: Notification[] = [
     section: 'earlier',
   },
   {
-    id: 'n4',
+    id: 'cn4',
     text: 'Профиль заполнен на 80%. Добавьте статистику блога.',
+    time: '3 дня назад',
+    read: true,
+    goTo: 'profile',
+    section: 'earlier',
+    icon: 'stats',
+  },
+];
+
+export const brandNotifications: Notification[] = [
+  {
+    id: 'bn1',
+    text: 'Елена Иванова откликнулась на «Открытие ресторана Nian». Посмотрите профиль креатора.',
+    time: '2 ч назад',
+    read: false,
+    collabId: 'nian-opening',
+    section: 'today',
+  },
+  {
+    id: 'bn2',
+    text: 'Новая заявка на «Бьюти-день: бартер на уход» — рассмотрите отклик.',
+    time: '5 ч назад',
+    status: 'pending',
+    read: false,
+    collabId: 'beauty-day',
+    section: 'today',
+  },
+  {
+    id: 'bn3',
+    text: '«Fashion Pop-Up x Local Heroes» уже набрала 21 отклик от креаторов.',
+    time: 'Вчера',
+    read: true,
+    collabId: 'fashion-popup',
+    section: 'earlier',
+  },
+  {
+    id: 'bn4',
+    text: 'Профиль бренда заполнен на 60%. Добавьте описание и логотип, чтобы получать больше откликов.',
     time: '3 дня назад',
     read: true,
     goTo: 'profile',

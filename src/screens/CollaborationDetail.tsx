@@ -117,7 +117,7 @@ export default function CollaborationDetail() {
               <div style={{ display: 'flex' }}>
                 {['cc-app-1', 'cc-app-2', 'cc-app-3', 'cc-app-4'].map((a, i) => (
                   <span key={a} style={{ width: 28, height: 28, borderRadius: '50%', border: '2px solid #fff', overflow: 'hidden', display: 'block', marginLeft: i ? -10 : 0 }}>
-                    <ImageSlot id="" />
+                    <ImageSlot id={`picsum:${a}`} />
                   </span>
                 ))}
               </div>

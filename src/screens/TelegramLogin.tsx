@@ -80,6 +80,8 @@ export default function TelegramLogin() {
               maxLength={1}
               style={{
                 flex: 1,
+                minWidth: 0,
+                width: 0,
                 height: 60,
                 borderRadius: 14,
                 background: '#fff',
